@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive PC Builder | LUXURY PC</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">LUXURY <span>PC</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="builder.html" class="active">Custom PC Builder</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="cart-icon">🛒 <span class="cart-badge" id="cartCount">0</span></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Build Your Custom PC</h2>
+        
+        <div class="builder-layout">
+            <div class="builder-steps">
+                
+                <div class="step-card">
+                    <h3>1. Select Processor (CPU)</h3>
+                    <select id="cpuSelect">
+                        <option value="" data-price="0" data-socket="">-- Select CPU --</option>
+                        <option value="Intel Core i9-14900K" data-price="589" data-socket="LGA1700">Intel Core i9-14900K (LGA1700) - $589</option>
+                        <option value="AMD Ryzen 7 7800X3D" data-price="449" data-socket="AM5">AMD Ryzen 7 7800X3D (AM5) - $449</option>
+                    </select>
+                </div>
+
+                <div class="step-card">
+                    <h3>2. Select Motherboard</h3>
+                    <select id="moboSelect">
+                        <option value="" data-price="0" data-socket="">-- Select Motherboard --</option>
+                        <option value="ASUS ROG Maximus Z790" data-price="699" data-socket="LGA1700">ASUS ROG Maximus Z790 (LGA1700) - $699</option>
+                        <option value="MSI MEG X670E ACE" data-price="699" data-socket="AM5">MSI MEG X670E ACE (AM5) - $699</option>
+                    </select>
+                </div>
+
+                <div class="step-card">
+                    <h3>3. Select System Memory (RAM)</h3>
+                    <select id="ramSelect">
+                        <option value="" data-price="0">-- Select Memory --</option>
+                        <option value="Corsair Dominator Titanium 32GB DDR5" data-price="175">Corsair Dominator 32GB DDR5 - $175</option>
+                        <option value="G.Skill Trident Z5 RGB 64GB DDR5" data-price="260">G.Skill Trident Z5 64GB DDR5 - $260</option>
+                    </select>
+                </div>
+
+                <div class="step-card">
+                    <h3>4. Select Graphics Card (GPU)</h3>
+                    <select id="gpuSelect">
+                        <option value="" data-price="0">-- Select Graphics Card --</option>
+                        <option value="NVIDIA GeForce RTX 4090 24GB" data-price="1899">NVIDIA GeForce RTX 4090 24GB - $1,899</option>
+                        <option value="NVIDIA GeForce RTX 4080 Super" data-price="999">NVIDIA GeForce RTX 4080 Super - $999</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+                <h3>Build Summary</h3>
+                <div id="compatibilityStatus" class="status-box compatible">
+                    ✓ All parts are compatible
+                </div>
+                <div class="build-details" id="buildDetails">
+                    <p>Select components to see configuration.</p>
+                </div>
+                <hr style="border-color: var(--border-color); margin: 1rem 0;">
+                <p>Estimated Total:</p>
+                <h2 style="color: var(--accent-cyan); font-size: 2.2rem;" id="totalPrice">$0.00</h2>
+                <br>
+                <button class="btn btn-magenta" style="width: 100%;" onclick="addBuildToCart()">Add Build To Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/builder.js"></script>
+</body>
+</html>
