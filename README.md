@@ -62,3 +62,44 @@ LUXURY-PC-SHOP/
 └── js/
     ├── main.js         # Navigation & Global Cart System
     └── builder.js      # Socket Compatibility & Dynamic Price Estimator
+
+🚀 Quick Start
+Follow these simple steps to run the project locally.
+
+Prerequisites
+No external dependencies or node packages are required! All you need is a modern web browser.
+
+Installation
+Clone the repository:
+
+Bash
+git clone [https://github.com/minatonamikaze359/LUXURY-PC-SHOP.git](https://github.com/minatonamikaze359/LUXURY-PC-SHOP.git)
+Navigate to the project directory:
+
+Bash
+cd LUXURY-PC-SHOP
+Open the project:
+Simply double-click index.html or open it using VS Code Live Server to preview live changes.
+
+💻 Custom PC Builder Preview
+Plaintext
+[ Select CPU ]      --> Intel i9-14900K (LGA1700)
+[ Select Motherboard ] --> ASUS ROG Z790 (LGA1700)
+---------------------------------------------------
+STATUS:  ✓ All selected parts are fully compatible.
+TOTAL :  $1,288.00
+🤝 Contributing
+Contributions are welcome! If you have suggestions for new features, bug fixes, or design improvements:
+
+Fork the Project
+
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
+
+Commit your Changes (git commit -m 'Add some AmazingFeature')
+
+Push to the Branch (git checkout -b feature/AmazingFeature)
+
+Open a Pull Request
+
+📝 License
+Distributed under the MIT License. See LICENSE for more information.
