@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Titan Rig | LUXURY PC</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">LUXURY <span>PC</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="builder.html">Custom PC Builder</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="cart-icon">🛒 <span class="cart-badge" id="cartCount">0</span></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="product-detail-layout">
+            
+            <div class="gallery">
+                <div class="gallery-main">
+                    <img id="mainImage" src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80" alt="PC Case Setup">
+                </div>
+                <div class="gallery-thumbs">
+                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=200&q=80" onclick="document.getElementById('mainImage').src=this.src">
+                    <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=200&q=80" onclick="document.getElementById('mainImage').src=this.src">
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1>Apex Titan Gaming Rig</h1>
+                <p class="card-price" style="font-size: 2.2rem; margin: 1rem 0;">$3,499.00</p>
+                <p>Designed for absolute peak performance with RGB liquid cooling, maximum airflow, and high-end hardware integration.</p>
+
+                <table class="specs-table">
+                    <tr><td>Processor</td><td>Intel Core i9-14900K</td></tr>
+                    <tr><td>Graphics Card</td><td>NVIDIA GeForce RTX 4090 24GB</td></tr>
+                    <tr><td>Memory</td><td>64GB DDR5 6000MHz RGB</td></tr>
+                    <tr><td>Storage</td><td>2TB NVMe M.2 Gen4 SSD</td></tr>
+                    <tr><td>Cooling</td><td>360mm Liquid ARGB Cooler</td></tr>
+                </table>
+
+                <button class="btn btn-magenta" onclick="addToCart(1)">Add To Cart</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
