@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | LUXURY PC</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">LUXURY <span>PC</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="builder.html">Custom PC Builder</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="cart-icon">🛒 <span class="cart-badge" id="cartCount">0</span></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Catalog</h2>
+
+        <div class="builder-layout" style="grid-template-columns: 280px 1fr;">
+            <!-- Filter Sidebar -->
+            <aside class="step-card" style="height: fit-content;">
+                <h3>Filter Options</h3>
+                <label style="display:block; margin: 1rem 0 0.5rem;">Search</label>
+                <input type="text" id="searchInput" placeholder="Search systems or parts..." style="width: 100%; padding: 0.6rem; background: var(--bg-dark); color: #fff; border: 1px solid var(--border-color); border-radius: 4px;">
+
+                <label style="display:block; margin: 1rem 0 0.5rem;">Purpose</label>
+                <select id="purposeFilter">
+                    <option value="all">All Purposes</option>
+                    <option value="gaming">Extreme Gaming</option>
+                    <option value="workstation">Professional Workstation</option>
+                </select>
+
+                <label style="display:block; margin: 1rem 0 0.5rem;">Max Price</label>
+                <input type="range" id="priceRange" min="500" max="5000" step="100" value="5000" style="width: 100%;">
+                <span id="priceValue">$5000</span>
+            </aside>
+
+            <!-- Product Items Output Grid -->
+            <div class="grid" id="productGrid">
+                <!-- Products loaded via Javascript -->
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        const products = [
+            { id: 1, name: "Apex Titan Rig", price: 3499, purpose: "gaming", img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80" },
+            { id: 2, name: "Valkyrie Stealth", price: 2199, purpose: "gaming", img: "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=600&q=80" },
+            { id: 3, name: "Creator Studio Pro", price: 4199, purpose: "workstation", img: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80" },
+            { id: 4, name: "Minimalist Workstation", price: 1299, purpose: "workstation", img: "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        const grid = document.getElementById('productGrid');
+        const searchInput = document.getElementById('searchInput');
+        const purposeFilter = document.getElementById('purposeFilter');
+        const priceRange = document.getElementById('priceRange');
+        const priceValue = document.getElementById('priceValue');
+
+        function renderProducts() {
+            grid.innerHTML = '';
+            const query = searchInput.value.toLowerCase();
+            const selectedPurpose = purposeFilter.value;
+            const maxPrice = parseFloat(priceRange.value);
+
+            const filtered = products.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(query);
+                const matchesPurpose = selectedPurpose === 'all' || item.purpose === selectedPurpose;
+                const matchesPrice = item.price <= maxPrice;
+                return matchesSearch && matchesPurpose && matchesPrice;
+            });
+
+            filtered.forEach(item => {
+                grid.innerHTML += `
+                    <div class="card">
+                        <img src="${item.img}" alt="${item.name}">
+                        <div class="card-body">
+                            <h3 class="card-title">${item.name}</h3>
+                            <p class="card-price">$${item.price.toLocaleString()}</p>
+                            <a href="product-detail.html" class="btn">View Product</a>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        priceRange.addEventListener('input', (e) => {
+            priceValue.textContent = `$${e.target.value}`;
+            renderProducts();
+        });
+        searchInput.addEventListener('input', renderProducts);
+        purposeFilter.addEventListener('change', renderProducts);
+
+        renderProducts();
+    </script>
+</body>
+</html>
